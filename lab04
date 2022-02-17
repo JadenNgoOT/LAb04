@@ -1,0 +1,51 @@
+package Labs.Lab04;
+import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
+import javafx.scene.layout.GridPane;
+import javafx.stage.Stage;
+
+public class lab04 extends Application {
+
+    @Override
+    public void start(Stage stage) {
+        Label username = new Label("Username");
+        TextField tf1 = new TextField();
+        Label password = new Label("Password");
+        TextField tf2 = new PasswordField();
+        Label fullName = new Label("Full Name");
+        TextField tf3 = new TextField();
+        Label telephoneNum = new Label("Phone #");
+        TextField tf4 = new TextField();
+        Label email = new Label("Email");
+        TextField tf5 = new TextField();
+        Label date = new Label("Date");
+        DatePicker dp = new DatePicker();
+        Button button = new Button("Register");
+
+        button.setOnAction(e->System.out.println("Username: " + tf1.getText() + "\n" +
+                                                "Password: " + tf2.getText() + "\n" +
+                                                "Full Name: " + tf3.getText() + "\n" +
+                                                "Phone Number: " + tf4.getText() + "\n" +
+                                                "Email: " + tf5.getText() + "\n" +
+                                                "Date: " + dp.getValue() + "\n"));
+
+        GridPane root = new GridPane();
+        root.addRow(0, username, tf1);
+        root.addRow(1, password, tf2);
+        root.addRow(2, fullName, tf3);
+        root.addRow(3, telephoneNum, tf4);
+        root.addRow(4, email, tf5);
+        root.addRow(5, date, dp);
+        root.addRow(6, button);
+
+        Scene scene = new Scene(root, 640, 480);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public static void main(String[] args) {
+        launch();
+    }
+
+}
